@@ -195,8 +195,9 @@ void move(runner * run) {
   run->y %= HEIGHT;
 }
 
-// execute the instruction at the current PC (x,y) and move the cursor
-// depending on the direction after executing the current op.
+/* execute the instruction at the current PC (x,y) and move the cursor
+ * depending on the direction after executing the current op.
+ */
 int step(runner * run) {
   int result = 0;
   operation op = run->memory[run->y * WIDTH + run->x];
@@ -286,7 +287,7 @@ int step(runner * run) {
     break;
   }
 
-  // directions..
+  /* directions.. */
   case OP_DIR_RIGHT:
     run->dir = DIR_RIGHT;
     break;
