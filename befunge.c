@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #define WIDTH 80
 #define HEIGHT 25
@@ -148,15 +149,15 @@ void push_int(runner * run, int val) {
   run->stack = new_entry;
 }
 
-inline int val_at_xy(runner * run, int x, int y) {
+int val_at_xy(runner * run, int x, int y) {
   return run->memory[y * WIDTH + x];
 }
 
-inline int val_at_pc(runner * run) {
+int val_at_pc(runner * run) {
   return val_at_xy(run, run->x, run->y);
 }
 
-inline int set_val_at_xy(runner * run, int x, int y, int val) {
+int set_val_at_xy(runner * run, int x, int y, int val) {
   return (run->memory[y * WIDTH + x] = val);
 }
 
